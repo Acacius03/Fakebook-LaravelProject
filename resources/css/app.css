@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*:has(> img) {
+    @apply overflow-hidden;
+}
+
+img {
+    @apply w-full h-full object-cover;
+}
+
+.search-box:has(input:focus) {
+    @apply max-w-full;
+}
