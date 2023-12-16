@@ -17,13 +17,9 @@
     <script src="https://kit.fontawesome.com/8fd0e10999.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.app-header')
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
+<body class="dark:text-white min-h-screen bg-gray-100 antialiased dark:bg-gray-900">
+    @include('layouts.app-header')
+    {{ $slot }}
 </body>
 
 </html>

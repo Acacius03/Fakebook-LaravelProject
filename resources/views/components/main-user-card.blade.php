@@ -1,5 +1,4 @@
-<div class="border-b bg-cover pt-24 dark:border-gray-700 dark:bg-gray-800"
-    style="background-image: url({{ asset('storage/' . auth()->user()->cover_photo) }})">
+<div class="bg-cover pt-24" style="background-image: url({{ asset('storage/' . auth()->user()->cover_photo) }})">
     <div class="flex flex-col items-center bg-white px-5 pb-3 dark:bg-gray-700">
         <div class="-mt-10 h-20 w-20 rounded-full border-2 bg-gray-500">
             <x-avatar :image="auth()->user()->profile_photo"></x-avatar>

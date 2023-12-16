@@ -7,8 +7,8 @@
                 <x-misc-nav></x-misc-nav>
             </nav>
         </aside>
-        <main class="flex-grow pt-2 lg:flex-shrink-0">
-            <div class="mx-auto flex w-full max-w-[680px] flex-col gap-4">
+        <main class="flex-grow px-2 lg:flex-shrink-0">
+            <div class="mx-auto w-full max-w-[680px]">
                 <livewire:post.create />
                 <livewire:post.lists />
             </div>

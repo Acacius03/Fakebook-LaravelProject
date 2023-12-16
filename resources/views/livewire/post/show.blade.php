@@ -16,31 +16,26 @@
                     </small>
                 </div>
             </div>
-            <div class="flex">
-                <button class="flex-center-center h-8 w-8 overflow-hidden rounded-full text-2xl">
-                    <i class="fa-solid fa-ellipsis"></i>
-                </button>
-                <button class="flex-center-center h-8 w-8 overflow-hidden rounded-full text-2xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+            <button class="h-8 w-8 overflow-hidden rounded-full text-2xl">
+                <i class="fa-solid fa-ellipsis"></i>
+            </button>
         </div>
         @if ($post->body)
-            <p class="mt-2 text-justify text-base">
+            <p class="mt-2 text-justify">
                 {{ $post->body }}
             </p>
         @endif
     </div>
     @foreach ($post->postMedias()->get() as $image)
-        <figure class="h-[400px] bg-gray-200">
-            <img class="object-contain" src="{{ asset('storage/' . $image->file) }}" alt="picture">
+        <figure class="max-h-[680px] bg-black">
+            <img class="mx-auto min-h-[340px]" src="{{ asset('storage/' . $image->file) }}">
         </figure>
     @endforeach
-    <div class="mx-5 flex justify-between px-4 py-1 text-base text-neutral-600">
+    <div class="mx-10 flex justify-between py-1 text-neutral-600">
         <span>{{ $post->reactions()->count() }} Likes</span>
         <span>No shares</span>
     </div>
-    <div class="mx-5 grid grid-cols-3 border-t text-base text-neutral-600">
+    <div class="mx-5 grid grid-cols-3 border-t text-neutral-600">
         <button class="post-interactives" wire:click="react">
             <i class="{{ $reacted ? 'fa-solid fa-thumbs-up' : 'fa-regular fa-thumbs-up' }} ' text-blue-700"></i>
             <span>Like</span>

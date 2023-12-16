@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Configured Tailwind CSS */
+.bg-white {
+    @apply dark:bg-gray-700;
+}
+.border {
+    @apply dark:border-gray-800;
+}
+.text-neutral-600 {
+    @apply dark:text-neutral-300;
+}
+
+/*  */
 *:has(> img) {
     @apply overflow-hidden;
 }
 
 img {
-    @apply w-full h-full object-cover;
+    @apply max-w-full max-h-full object-cover;
 }
 
 .search-box:has(input:focus) {

@@ -32,7 +32,7 @@
                     </button>
                 </x-slot>
                 <x-slot name="content">
-                    <div class="flex w-[300px] flex-col overflow-hidden rounded-md bg-white dark:bg-gray-700">
+                    <div class="flex w-[300px] flex-col overflow-hidden rounded-md border bg-white shadow">
                         @include('components.main-user-card')
                         <x-dropdown-link class="flex justify-between" href="{{ route('profile.edit') }}">
                             Profile Settings <i class="fa-solid fa-user-pen"></i>
