@@ -71,13 +71,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex-grow">
+                <div class="flex flex-grow flex-col gap-4">
                     @if (auth()->user()->id === $user->id)
-                        <livewire:post-maker />>
+                        <livewire:post.create />
                     @endif
-                    {{-- @foreach ($posts as $post)
-                        <x-blog-post :post="$post"></x-blog-post>
-                    @endforeach --}}
+                    <livewire:post.lists :user_id="$user->id" />
                 </div>
             </div>
         </div>

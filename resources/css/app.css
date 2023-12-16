@@ -13,3 +13,7 @@ img {
 .search-box:has(input:focus) {
     @apply max-w-full;
 }
+
+.post-interactives {
+    @apply hover:bg-gray-200 py-2 my-[1px] rounded-sm;
+}

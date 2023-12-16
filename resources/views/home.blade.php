@@ -8,8 +8,9 @@
             </nav>
         </aside>
         <main class="flex-grow pt-2 lg:flex-shrink-0">
-            <div class="mx-auto w-full max-w-[680px]">
-                <livewire:post-maker />
+            <div class="mx-auto flex w-full max-w-[680px] flex-col gap-4">
+                <livewire:post.create />
+                <livewire:post.lists />
             </div>
         </main>
         <aside class="sticky top-[0px] mt-[-66px] hidden h-screen w-full max-w-[360px] pt-[66px] xl:block">

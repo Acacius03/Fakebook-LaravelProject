@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_photo')->nullable();
-            $table->string('cover_photo')->nullable();
+        Schema::create('post_media', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->enum('file_type', ['image', 'video']);
+            $table->string('file');
+            $table->timestamps();
         });
     }
 
@@ -22,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['profile_photo', 'cover_photo']);
-        });
+        Schema::dropIfExists('post_media');
     }
 };
