@@ -9,12 +9,14 @@
         </aside>
         <main class="flex-grow px-2 lg:flex-shrink-0">
             <div class="mx-auto w-full max-w-[680px]">
-                <livewire:post.create />
+                <div class="my-3">
+                    <livewire:post.create />
+                </div>
                 <livewire:post.lists />
             </div>
         </main>
         <aside class="sticky top-[0px] mt-[-66px] hidden h-screen w-full max-w-[360px] pt-[66px] xl:block">
-            <nav class="flex h-full flex-col overflow-y-scroll p-4">
+            <nav class="flex h-full flex-col overflow-y-auto p-4">
                 <div class="flex items-center gap-2 px-2">
                     <span>Contacts</span>
                     <button class="icon-circle size-8 ml-auto text-lg">

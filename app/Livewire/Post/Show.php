@@ -4,19 +4,24 @@ namespace App\Livewire\Post;
 
 use App\Models\Post;
 use Livewire\Component;
+use Illuminate\Support\Facades\Route;
 
 class Show extends Component
 {
+    public int $id;
     public ?Post $post = null;
-    public bool $reacted = false;
-    public function mount(Post $post = null): void
+    public function mount(Post $post = null, int $id): void
     {
         $this->post = $post;
-        $this->reacted = $post->reactedBy(auth()->user()->id);
+        $this->id = $id;
+    }
+    public function delete()
+    {
+        $this->dispatch('post-delete', post_id: $this->post->id);
     }
     public function react()
     {
-        if ($this->reacted) {
+        if ($this->post->reactedBy(auth()->user()->id)) {
             $this->post->reactions()
                 ->where('user_id', auth()->user()->id)
                 ->delete();
@@ -27,7 +32,6 @@ class Show extends Component
                     'reactions' => 'like'
                 ]);
         }
-        $this->reacted = !$this->reacted;
     }
     public function render()
     {

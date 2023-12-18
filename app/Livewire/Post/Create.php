@@ -24,12 +24,10 @@ class Create extends Component
         if (!$this->body && !$this->image) {
             return redirect()->back()->withErrors(['body' => 'Either a text or an image is required.']);
         }
-
         $post = Post::create([
             'body' => $this->body,
             'user_id' => auth()->user()->id,
         ]);
-
         if ($this->image) {
             $path = $this->image->store('post_images', 'public');
             PostMedia::create([
@@ -38,8 +36,9 @@ class Create extends Component
                 'file' => $path,
             ]);
         }
+
+        $this->dispatch('post-created', post_id: $post->id);
         $this->reset();
-        $this->dispatch('post-created', post: $post);
     }
     public function render()
     {

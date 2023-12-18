@@ -83,11 +83,11 @@ new class extends Component {
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
-    <form wire:submit="updateProfileInformation" class="mt-6space-y-6" enctype="multipart/form-data">
+    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6 dark:text-black" enctype="multipart/form-data">
         <div class="flex items-center gap-4">
             <div x-data="{ 'preview': '{{ asset('storage/' . auth()->user()->profile_photo) }}' }">
                 <label for="profile_photo">
-                    <figure class="h-36 w-36 rounded-full border-2 p-1 shadow-inner">
+                    <figure class="h-36 w-36 rounded-full border-2 shadow-inner">
                         <img x-show="preview!==''" x-bind:src="preview" alt="Preview Image">
                     </figure>
                     <x-text-input wire:model="profile_photo" type="file" accept='image/jpeg, image/png'
@@ -139,15 +139,13 @@ new class extends Component {
             </div>
         </div>
         <label for="cover_photo" class="mb-2 block">
-            <p class="p-2 text-xl font-medium text-gray-900">
+            <p class="p-2 text-xl font-bold text-gray-900 dark:text-gray-100">
                 Cover Photo
             </p>
-            <div class="rounded-md border-2 p-1 shadow-inner">
+            <div class="border-1 rounded-md bg-gray-600 p-1">
                 <div x-data="{ 'preview': '{{ asset('storage/' . auth()->user()->cover_photo) }}' }">
-                    <figure
-                        class="max-h-[400px] min-h-[250px] w-full overflow-hidden rounded-md border-2 bg-neutral-100">
-                        <img x-show="preview!==''" class="h-full w-full object-contain" x-bind:src="preview"
-                            alt="Cover Image">
+                    <figure class="max-h-[400px] rounded-md bg-neutral-100">
+                        <img x-show="preview!==''" x-bind:src="preview" alt="Cover Image">
                     </figure>
                     <x-text-input wire:model="cover_photo" id="cover_photo" accept='image/jpeg, image/png'
                         name="cover_photo" type="file" class="hidden"

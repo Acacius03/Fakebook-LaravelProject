@@ -47,7 +47,7 @@ new class extends Component {
         </p>
     </header>
 
-    <form wire:submit="updatePassword" class="mt-6 space-y-6">
+    <form wire:submit="updatePassword" class="mt-6 space-y-6 dark:text-black">
         <div>
             <div class="flex items-center justify-between">
                 <x-input-label for="update_password_current_password" :value="__('Current Password')" />

@@ -29,11 +29,11 @@ new #[Layout('layouts.guest')] class extends Component {
         <div class="hidden bg-cover bg-center lg:block" style="background-image: url('/image/login_bg.jpg')">
         </div>
         <div class="flex h-full flex-col justify-end gap-20">
-            <div>
+            <div class="font-bold">
                 <h2
-                    class="mx-auto mb-5 h-20 w-20 overflow-hidden rounded-lg bg-blue-700 pr-4 text-right text-8xl font-bold text-white">
+                    class="mx-auto mb-5 h-20 w-20 overflow-hidden rounded-lg bg-blue-700 pr-4 text-right text-8xl text-white">
                     f</h2>
-                <h2 class="text-center text-3xl font-bold">Sign in to your account</h2>
+                <h2 class="text-center text-3xl">Log in to your account</h2>
             </div>
             <!-- Session Status -->
             <x-auth-session-status class="my-2 pr-10 text-right" :status="session('status')" />
@@ -70,7 +70,7 @@ new #[Layout('layouts.guest')] class extends Component {
                         href="{{ route('password.request') }}" wire:navigate>
                         {{ __('Forgot your password?') }}
                     </a>
-                    <input class="w-full rounded-md bg-blue-700 py-2 text-xl font-bold text-white" type="submit"
+                    <input class="w-full rounded-md bg-blue-700 py-2 text-xl text-white" type="submit"
                         value="{{ __('Log in') }}">
                 </form>
                 <p

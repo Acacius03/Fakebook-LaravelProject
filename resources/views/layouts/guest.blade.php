@@ -14,9 +14,10 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://kit.fontawesome.com/8fd0e10999.js" defer crossorigin="anonymous"></script>
 </head>
 
-<body class="antialiased">
+<body class="bg-gray-100 antialiased dark:bg-gray-900 dark:text-white">
     {{ $slot }}
 </body>
 

@@ -1,13 +1,14 @@
-<div x-data="{ 'show': false }" class="my-3 flex gap-2 rounded-lg border bg-white p-4 dark:bg-gray-700 dark:text-white">
-    <div class="h-10 w-10 rounded-full">
+<div x-data="{ 'show': false }"
+    class="flex gap-2 rounded-lg border bg-white p-4 shadow-md dark:border-0 dark:bg-gray-700 dark:text-white">
+    <a href="/user/{{ auth()->user()->id }}" wire:navigate class="h-10 w-10 rounded-full">
         <x-avatar :image="auth()->user()->profile_photo"></x-avatar>
-    </div>
+    </a>
     <button x-on:click="show=!show"
         class="flex-grow rounded-full border border-gray-300 bg-gray-50 px-6 text-start text-xl text-gray-400 outline-none hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-neutral-600">
         What's on your mind, {{ auth()->user()->name }}?
     </button>
     <div x-show="show" x-cloak @click.outside="show=false" @close.stop="show=false"
-        class="container absolute left-[50%] top-[50%] flex max-h-[720px] max-w-[500px] translate-x-[-50%] translate-y-[-50%] flex-col overflow-hidden rounded-xl border bg-white shadow-xl dark:bg-gray-700">
+        class="container fixed left-[50%] top-[50%] z-[100] flex max-h-[720px] max-w-[500px] translate-x-[-50%] translate-y-[-50%] flex-col overflow-hidden rounded-xl border bg-white shadow-xl dark:bg-gray-700">
         <header class="relative border-b border-neutral-200 p-5">
             <h3 class="text-center text-xl font-bold">Create Post</h3>
             <button x-on:click="show=false"

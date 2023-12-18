@@ -1,6 +1,6 @@
 @props(['image' => null])
 @if ($image)
-    <img src="{{ asset('storage/' . $image) }}">
+    <img src="{{ asset('storage/' . $image) }}" loading="lazy">
 @else
-    <img src="/image/avatar.png">
+    <img src="/image/avatar.png" loading="lazy">
 @endif
