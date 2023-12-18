@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FriendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,9 @@ Route::get('user/{id}', function ($id) {
 })
     ->middleware(['auth'])
     ->name('user.show');
+
+Route::get('friends', [FriendController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('friends');
 
 require __DIR__ . '/auth.php';

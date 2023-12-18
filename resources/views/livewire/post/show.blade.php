@@ -7,7 +7,7 @@
             <div class="flex items-center gap-3">
                 <a href="/user/{{ $post->user_id }}" wire:navigate>
                     <figure class="h-10 w-10 rounded-full">
-                        <x-avatar :image="$post->user->profile_photo"></x-avatar>
+                        <x-avatar :image="$post->user->profile_photo" :id="$post->user_id"></x-avatar>
                     </figure>
                 </a>
                 <div class="leading-none">

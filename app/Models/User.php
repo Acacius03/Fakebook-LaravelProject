@@ -82,11 +82,11 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Collection|\App\Models\User[]
      */
-    public function friends(): Collection
+    public function friends()
     {
-        $friendsAdded = $this->friendsAdded()->whereNotNull('accepted_at')->pluck('friend_id');
-        $friendsReceived = $this->friendsReceived()->whereNotNull('accepted_at')->pluck('user_id');
+        $friendsAdded = $this->friendRequestsSent()->whereNotNull('accepted_at')->pluck('friend_id');
+        $friendsReceived = $this->friendRequestsReceived()->whereNotNull('accepted_at')->pluck('user_id');
         $friendsIds = $friendsAdded->merge($friendsReceived)->unique()->toArray();
-        return User::whereIn('id', $friendsIds)->get();
+        return User::whereIn('id', $friendsIds);
     }
 }

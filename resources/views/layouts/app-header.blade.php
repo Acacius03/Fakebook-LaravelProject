@@ -10,7 +10,7 @@
             <x-main-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                 <i class="fa-solid fa-house"></i>
             </x-main-nav-link>
-            <x-main-nav-link href="{{ route('home') }}">
+            <x-main-nav-link href="{{ route('friends') }}" :active="request()->routeIs('friends')">
                 <i class="fa-solid fa-user-group"></i>
             </x-main-nav-link>
             <x-main-nav-link href="{{ route('home') }}">

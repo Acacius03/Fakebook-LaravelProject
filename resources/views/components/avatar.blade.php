@@ -1,6 +1,10 @@
-@props(['image' => null])
+@props(['image' => null, 'id' => 0])
 @if ($image)
-    <img src="{{ asset('storage/' . $image) }}" loading="lazy">
+    <img class="h-full w-full" src="{{ asset('storage/' . $image) }}" loading="lazy">
 @else
-    <img src="/image/avatar.png" loading="lazy">
+    @if ($id)
+        <img class="h-full w-full" src="https://i.pravatar.cc/300?img={{ $id }}" loading="lazy">
+    @else
+        <img class="h-full w-full" src="/image/avatar.png" loading="lazy">
+    @endif
 @endif

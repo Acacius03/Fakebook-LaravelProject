@@ -26,9 +26,9 @@
                         <i class="fa-solid fa-ellipsis"></i>
                     </button>
                 </div>
-                {{-- @foreach (auth()->user()->getFriendUsers() as $friend)
+                @foreach (auth()->user()->friends()->get() as $friend)
                     <x-profile-card :user="$friend"></x-profile-card>
-                @endforeach --}}
+                @endforeach
             </nav>
         </aside>
     </div>
