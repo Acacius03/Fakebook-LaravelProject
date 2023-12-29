@@ -1,7 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/*  */
+.btn-primary {
+    @apply bg-blue-700 text-white hover:bg-blue-900 dark:hover:bg-blue-600;
+}
+.btn-cta {
+    @apply bg-green-600;
+}
+.fixed-center {
+    @apply fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%];
+}
+.absolute-center-y {
+    @apply absolute top-[50%] translate-y-[-50%];
+}
+.flex-center-center {
+    @apply flex items-center justify-center;
+}
 /* Configured Tailwind CSS */
 .bg-white {
     @apply dark:bg-gray-700;
@@ -11,6 +26,12 @@
 }
 .text-neutral-600 {
     @apply dark:text-neutral-300;
+}
+.bg-gray-200 {
+    @apply dark:bg-gray-800;
+}
+.text-gray-700 {
+    @apply dark:text-gray-400;
 }
 /*  */
 body {

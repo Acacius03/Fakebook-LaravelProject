@@ -4,36 +4,36 @@
         <x-avatar :image="auth()->user()->profile_photo"></x-avatar>
     </a>
     <button x-on:click="show=!show"
-        class="flex-grow rounded-full border border-gray-300 bg-gray-50 px-6 text-start text-xl text-gray-400 outline-none hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-neutral-600">
-        What's on your mind, {{ auth()->user()->name }}?
+        class="flex-grow rounded-full border border-gray-400 bg-gray-200 px-6 text-start text-xl text-gray-700 outline-none hover:bg-gray-400 dark:border-gray-950 dark:hover:bg-gray-950">
+        What's on your mind, {{ explode(' ', auth()->user()->name)[0] }}?
     </button>
     <div x-show="show" x-cloak @click.outside="show=false" @close.stop="show=false"
-        class="container fixed left-[50%] top-[50%] z-[100] flex max-h-[720px] max-w-[500px] translate-x-[-50%] translate-y-[-50%] flex-col overflow-hidden rounded-xl border bg-white shadow-xl dark:bg-gray-700">
+        class="fixed-center container z-[100] flex max-h-[720px] max-w-[720px] flex-col overflow-hidden rounded-xl border bg-white shadow-xl">
         <header class="relative border-b border-neutral-200 p-5">
-            <h3 class="text-center text-xl font-bold">Create Post</h3>
+            <h3 class="text-center text-2xl font-bold">Create Post</h3>
             <button x-on:click="show=false"
-                class="flex-center-center absolute right-5 top-[50%] h-10 w-10 translate-y-[-50%] overflow-hidden rounded-full bg-neutral-200 text-2xl">
+                class="absolute-center-y flex-center-center right-5 h-10 w-10 rounded-full bg-gray-200 text-2xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </header>
         <div class="flex flex-col gap-1 overflow-y-auto p-6">
             <div class="flex h-12 items-center gap-3">
-                <div class="h-14 w-14 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
+                <figure class="h-14 w-14 rounded-full">
                     <x-avatar :image="auth()->user()->profile_photo"></x-avatar>
-                </div>
+                </figure>
                 <div class="leading-none">
-                    <span class="font-bold">{{ auth()->user()->name }}</span> <br>
-                    <small> {{ now('Asia/Manila')->format('F j, Y, h:ia') }} </small>
+                    <span class="font-bold">{{ auth()->user()->name }}</span><br>
+                    <small>{{ now('Asia/Manila')->format('F j, Y, h:ia') }}</small>
                 </div>
             </div>
             <form x-data="{ 'preview': '' }" wire:submit="createPost" enctype="multipart/form-data"
                 class="mt-2 flex flex-grow flex-col gap-2 px-2" enctype="multipart/form-data">
                 <x-input-error class="mt-2" :messages="$errors->get('body')" />
                 <div class="max-h-[200px]">
-                    <textarea wire:model="body" id="content" name="content"
-                        class="h-auto max-h-40 w-full resize-none overflow-auto bg-transparent text-2xl outline-none"
-                        placeholder="Whats's on your mind?" x-ref="textarea"
-                        @input="$refs.textarea.style.height = 'auto'; $refs.textarea.style.height = $refs.textarea.scrollHeight + 'px'"></textarea>
+                    <textarea wire:model="body" id="content" name="content" placeholder="Whats's on your mind?" x-ref="textarea"
+                        @input="$refs.textarea.style.height = 'auto';
+                        $refs.textarea.style.height = $refs.textarea.scrollHeight + 'px'"
+                        class="max-h-40 w-full resize-none bg-transparent p-2 text-2xl outline-none"></textarea>
                 </div>
                 <div x-show="preview!==''" class="relative mb-2 rounded-md border border-neutral-400 p-2">
                     <div @click="preview='';"

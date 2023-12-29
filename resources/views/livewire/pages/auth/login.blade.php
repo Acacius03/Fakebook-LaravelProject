@@ -8,7 +8,6 @@ use Livewire\Volt\Component;
 
 new #[Layout('layouts.guest')] class extends Component {
     public LoginForm $form;
-
     /**
      * Handle an incoming authentication request.
      */
@@ -45,8 +44,8 @@ new #[Layout('layouts.guest')] class extends Component {
                             <x-input-label for="email" :value="__('Email')" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
-                        <x-text-input wire:model="form.email" id="email" class="mt-1 block w-full border p-2"
-                            type="email" name="email" required autofocus autocomplete="username" />
+                        <x-text-input wire:model="form.email" id="email" type="email" name="email"
+                            class="mt-1 w-full border p-2 dark:text-black" required autofocus autocomplete="username" />
                     </div>
                     <!-- Password -->
                     <div class="my-2">
@@ -54,35 +53,27 @@ new #[Layout('layouts.guest')] class extends Component {
                             <x-input-label for="password" :value="__('Password')" />
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
-                        <x-text-input wire:model="form.password" id="password" class="mt-1 block w-full border p-2"
-                            type="password" name="password" required autocomplete="current-password" />
+                        <x-text-input wire:model="form.password" id="password" type="password" name="password"
+                            class="mt-1 block w-full border p-2 dark:text-black" required
+                            autocomplete="current-password" />
                     </div>
-                    <!-- Remember Me -->
-                    <div class="mt-4 block">
-                        <label for="remember" class="inline-flex items-center">
-                            <input wire:model="formNaNpxember" id="remember" type="checkbox"
-                                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
-                                name="remember">
-                            <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-                        </label>
-                    </div>
-                    <a class="m-1 ml-auto block w-max px-1 text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-                        href="{{ route('password.request') }}" wire:navigate>
+                    <a href="{{ route('password.request') }}" wire:navigate
+                        class="m-1 ml-auto mt-4 block w-max px-1 text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
                         {{ __('Forgot your password?') }}
                     </a>
-                    <input class="w-full rounded-md bg-blue-700 py-2 text-xl text-white" type="submit"
-                        value="{{ __('Log in') }}">
+                    <input type="submit" value="{{ __('Log in') }}"
+                        class="btn-primary w-full rounded-md py-2 text-xl font-bold">
                 </form>
                 <p
                     class="my-4 flex items-center justify-center gap-2 px-5 before:h-[1px] before:flex-auto before:bg-black after:h-[1px] after:flex-auto after:bg-black">
                     Or</p>
-                <a class="mx-auto block w-max text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-                    href="{{ route('register') }}">
-                    Create a new account
+                <a href="{{ route('register') }}" wire:navigate
+                    class="mx-auto block w-max text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                    {{ __('Create a new account') }}
                 </a>
             </div>
-            <footer class="border-t-2 bg-white py-10 text-center">
-                <p>Fakebook Copyright &copy; 2023, All Rights Reserved.</p>
+            <footer class="border-t-2 bg-white py-10 text-center dark:border-0">
+                <p>{{ __('Fakebook Copyright') }} &copy; {{ __('2023, All Rights Reserved.') }}</p>
             </footer>
         </div>
     </div>

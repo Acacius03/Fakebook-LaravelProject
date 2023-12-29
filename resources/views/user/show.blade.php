@@ -66,7 +66,7 @@
                 </div>
                 <div class="mt-4 grid grid-cols-3 gap-3">
                     @foreach ($user->friends()->get() as $friend)
-                        <a href="/user/{{ $friend->id }}">
+                        <a href="/user/{{ $friend->id }}" wire:navigate>
                             <figure class="rounded border-2">
                                 <x-avatar :image="$friend->profile_photo" :id="$friend->id"></x-avatar>
                             </figure>
